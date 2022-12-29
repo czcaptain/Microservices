@@ -2,9 +2,9 @@
 spring:
   application:
     name:  eureka-server
+  profiles:
+    active: peer2
 
-server:
-  port: 5001 #修改内嵌Tomcat端口为5001
 
 eureka:
   client:
@@ -13,8 +13,8 @@ eureka:
     # 取消服务获取，至于服务获取，本章后续会讨论
     fetch-registry: false
     # 服务注册域地址
-  #    service-url:
-  #      defaultZone: http://192.168.1.100:5002/eureka/
+    service-url:
+     defaultZone: http://192.168.1.100:5002/eureka/,http://192.168.1.100:5001/eureka/
   instance:
     # 服务治理中心服务器IP
     hostname: 192.168.1.100
